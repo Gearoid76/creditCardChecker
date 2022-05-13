@@ -73,15 +73,44 @@ const validateCred = (array) => {
 
 let invalidCards = [];
 let validCards =[];
+let validCardNames = [];
 const findInvaidCards = (nestedArray) => {
    for (var i = 0; i < nestedArray.length; i ++) {
       if (validateCred(nestedArray[i]) === 'Invalid Card') {
          invalidCards.push(nestedArray[i]);
-      }else validCards.push(nestedArray[i]);
+      } else {
+      validCards.push(nestedArray[i]);
    }
-  console.log(invalidCards);
-  console.log("valid cards below")
-  console.log(validCards);
-
+   }
+   console.log(validCards);
 };
 findInvaidCards(batch);
+
+for(let i = 0; i < validCards.length; i++){
+switch (validCards[i][0]) {
+   case 3:
+      if (validCards.indexOf('Amex') === -1) {
+         validCardNames.push('Amex');
+      }
+      break;
+   case 4: 
+      if (validCards.indexOf('Visa') === -1) {
+         validCardNames.push('Visa');
+      }
+      break;
+   case 5:
+      if (validCards.indexOf('MasterCard') === -1) {
+         validCardNames.push('MasterCard')
+      }
+      break;
+   case 6:
+      if (validCards.indexOf('Discover') === -1) {
+         validCardNames.push('Discover')
+      }
+      break;
+   default:
+      console.log('Company not in Database')
+   }
+};
+console.log(validCardNames);
+
