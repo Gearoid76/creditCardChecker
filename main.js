@@ -65,56 +65,23 @@ const validateCred = (array) => {
    console.log(checkDigits + " check digit starting from the back");
    console.log(subDigits + " there are the subdigits");
    console.log(newSubDigits);
-   console.log(finalSum);
+   console.log(finalSum + " final sum");
 
 }
 //console.log(validateCred(valid1));
 //console.log(validateCred(invalid1));
 
-const idInvalidCard = nestedArray => {
-   let invalidCards = [];
-   let cards = [];
-   
-   for (let i = 0; i < nestedArray.length; i++) {
-      validateCred(nestedArray[i]);
-      if(validateCred(nestedArray[i]) === false) {
+let invalidCards = [];
+let validCards =[];
+const findInvaidCards = (nestedArray) => {
+   for (var i = 0; i < nestedArray.length; i ++) {
+      if (validateCred(nestedArray[i]) === 'Invalid Card') {
          invalidCards.push(nestedArray[i]);
-      }
-        
-
-         switch(card[i]) {
-            case 3:
-               if(companies.indexOf('Amex') === -1) {
-                  companies.push('Amex');
-               }
-               break;
-
-            case 4:
-               if(companies.indexOf('Visa')=== -1) {
-                  companies.push('Visa');
-               }
-               break;
-            case 5:
-               if(companies.indexOf('MasterCard') === -1) {
-                  companies.push('Mastercard');
-               }
-               break;
-            case 6:
-               if(companies.indexOf('Discover') === -1) {
-                  companies.push('Discover');
-               }
-               break;
-            default:
-               console.log('Company not found')
-         }
-      
+      }else validCards.push(nestedArray[i]);
    }
-   return invalidCards;
-   return companies;
+  console.log(invalidCards);
+  console.log("valid cards below")
+  console.log(validCards);
 
-}
-
-console.log('Invalid Cards: ');
-console.log(invalidCards(batch));
-console.log('Companies: ');
-//console.log(idInvalidCardCompanies(InvalidCards(batch)));
+};
+findInvaidCards(batch);
