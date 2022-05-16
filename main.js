@@ -17,7 +17,8 @@ const mystery1 = [3, 4, 4, 8, 0, 1, 9, 6, 8, 3, 0, 5, 4, 1, 4]
 const mystery2 = [5, 4, 6, 6, 1, 0, 0, 8, 6, 1, 6, 2, 0, 2, 3, 9]
 const mystery3 = [6, 0, 1, 1, 3, 7, 7, 0, 2, 0, 9, 6, 2, 6, 5, 6, 2, 0, 3]
 const mystery4 = [4, 9, 2, 9, 8, 7, 7, 1, 6, 9, 2, 1, 7, 0, 9, 3]
-const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
+//const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
+const mystery5 = [3, 6, 3, 5, 4, 5, 5, 8, 9, 1, 0, 4, 1, 9]
 
 // An array of all the arrays above
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5]
@@ -91,7 +92,7 @@ switch (validCards[i][0]) {
    case 3:
       if (validCards.indexOf('Amex') === -1) {
          validCardNames.push('Amex');
-      }
+      } 
       break;
    case 4: 
       if (validCards.indexOf('Visa') === -1) {
@@ -108,9 +109,18 @@ switch (validCards[i][0]) {
          validCardNames.push('Discover')
       }
       break;
+   case 36:
+      if (validCards.indexOf('Diners Club - International') === -1,-2) {
+         validCardsNames.Push('Diners Club - International')
+      }
+      break;
    default:
       console.log('Company not in Database')
    }
 };
 console.log(validCardNames);
+// part 7 converting numbers from a string to a number (see lines 2- 21)
+console.log('Adding number as text converting it into a number ')
+let stringNumber =  '5342705679562751'.replace(/(\d)(?=(\d{1})+$)/g, '$1, ');
 
+console.log(stringNumber);
